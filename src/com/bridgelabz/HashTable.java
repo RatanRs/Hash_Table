@@ -16,9 +16,6 @@ public class HashTable {
 	static void userInputSentence(String userString) {
 		HashMap<String, Integer> frequency = new HashMap<String, Integer>();
 		String[] words = userString.split(" ");
-		/***
-		 * Used For loop for iteration
-		 */
 		for (String word : words) {
 			if (frequency.containsKey(word)) {
 				frequency.put(word, frequency.get(word) + 1);
@@ -35,10 +32,36 @@ public class HashTable {
 				System.out.println(word + " = " + frequency.get(word) + " times.");
 		}
 	}
+/***
+ * 
+ * @param string
+ * @param removeWord
+ */
+	public static void remove(String string, String removeWord) {
+		
+		String[] stringArray = string.split(" ");
+		String newSentenceAfterRemovingWord = " ";
+		  
+		
+		for (String words : stringArray) {
+			
+			if (!words.equals(removeWord)) {
+	 	newSentenceAfterRemovingWord = newSentenceAfterRemovingWord + words + " ";
+
+			}
+		}
+		
+		System.out.println(newSentenceAfterRemovingWord);
+	}
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the HashTable program");
+
 		userInputSentence("Paranoids are not paranoid because they are paranoid but because "
 				+ "they keep putting themselves deliberately into paranoid avoidable situations");
+		
+		System.out.println("===========================================================================================");
+		String string = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+		String removeWord = "avoidable";
+		remove(string, removeWord);
 	}
 }

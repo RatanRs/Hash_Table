@@ -1,4 +1,5 @@
 package com.bridgelabz;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -12,10 +13,12 @@ public class HashTable {
 	 * 
 	 * @param args
 	 */
-	static void printSentence(String stringValue) {
+	static void userInputSentence(String userString) {
 		HashMap<String, Integer> frequency = new HashMap<String, Integer>();
-		String[] words = stringValue.split(" ");
-
+		String[] words = userString.split(" ");
+		/***
+		 * Used For loop for iteration
+		 */
 		for (String word : words) {
 			if (frequency.containsKey(word)) {
 				frequency.put(word, frequency.get(word) + 1);
@@ -24,15 +27,18 @@ public class HashTable {
 			}
 		}
 		Set<String> stringFrequency = frequency.keySet();
-		System.out.println("Frequency Of Each word in Sentence: \n 'To Be Or Not To Be'");
+		System.out.println("Frequency of words in sentence 'Paranoids are not paranoid because"
+				+ " they are paranoid but because they keep putting themselves deliberately into"
+				+ " paranoid avoidable situations' is");
 		for (String word : stringFrequency) {
-			System.out.println(word + " = " + frequency.get(word) + " times.");
-
+			if (frequency.get(word) > 1)
+				System.out.println(word + " = " + frequency.get(word) + " times.");
 		}
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to the HashTable program");
-		printSentence("To Be Or Not To Be");
+		userInputSentence("Paranoids are not paranoid because they are paranoid but because "
+				+ "they keep putting themselves deliberately into paranoid avoidable situations");
 	}
 }
